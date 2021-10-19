@@ -10,34 +10,34 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
-                noteButton(1, Colors.red),
-                noteButton(2, Colors.orange),
-                noteButton(3, Colors.yellow),
-                noteButton(4, Colors.lightGreen),
-                noteButton(5, Colors.green),
-                noteButton(6, Colors.blue),
-                noteButton(7, Colors.purple)
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:<Widget>[
+              noteButton(1, Colors.red),
+              noteButton(2, Colors.orange),
+              noteButton(3, Colors.yellow),
+              noteButton(4, Colors.lightGreen),
+              noteButton(5, Colors.green),
+              noteButton(6, Colors.blue),
+              noteButton(7, Colors.purple),
+            ],
           ),
         ),
       ),
     );
   }
 
-  TextButton noteButton(int value, Color color) {
-    return TextButton(
-      onPressed: () {
-        _playSound(value);
-      },
-      child: Container(
-        width: 100,
-        height: 40,
-        color: color,
+  Expanded noteButton(int value, Color color) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          _playSound(value);
+        },
+        child: Container(
+          color: color,
+        ),
       ),
     );
   }
